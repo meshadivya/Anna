@@ -1,0 +1,134 @@
+ Monolythic vs distributed
+--tight hardware
+--rdbms --stores data in form of a table - structured data , storage limit 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 - structured , unstructured, semi structured 
+
+json - tabular(structured)- data warehouse(rdbms)
+source - staging layer- transformation- destination
+a,b,c                                   a b c
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+sql - 5 types
+1.ddl --  blue print (schema)
+-- create, drop, alter, truncate 
+schema -- table name, columns, datatypes
+ex: create table table name (column names datatype) , drop table table name, alter table table name add column datatype, truncate table table name 
+databasename.tablename
+
+metadata - data about data - total number of rows, nulls
+
+2.dml -- delete, insert, update 
+
+3.dcl -- grant, revoke, deny 
+
+4.tcl -- data protection -- commit, rollback, save point
+
+5.dql - select, group by --analysis
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Acid properties---
+
+Atomicity -- (debit - credit)
+consistency -- 500 - 100 ,100,-200
+isolation -  individual transactions 
+durability - save changes once committed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+constraints --- column level rules
+
+id -- unique , not null --- primary key constraint 
+name --- allows duplicates ---not null constraint 
+email id --- doenst allow duplicates, only one null  -- unique key constraint 
+default -- default value
+check - specific condition (age > 18)
+foriegn key constraint --- establishes relation --common column  --joins
+
+name varchar default def
+id, name ,age
+1,abc , 1
+2, def
+3,def
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+sql datatypes 
+
+
+integer -- int -- 4 bytes ---4,23....., bigint - 16 bytes 
+character -- char --- 1 letter , char(5), varchar- 2 - 2 letters, varchar(50) - , nvarchar-4, nvarchar(50)- , text
+float -- 2 bytes, decimal - 32 , 13000.77777777777777,12000.12,13000.88888888888888888888888888888, decimal(5,2) --5 - p 1.23, numeric (10,0)
+date - date(day,month,year), datetime - (day,month,year time), tamestamp 
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+database objects --- table ----views, sp, triggers
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+table -- structured data 
+
+create table tablename ( column name data type)
+create table tablename ( column name data type constraint)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+use practicedb
+
+exec sp_help products
+drop table product
+CREATE TABLE [dbo].[Product](
+	[SaleID] [bigint] ,
+	[ProductID] [int] ,
+	[ProductName] [varchar](200) ,
+	[SaleDate] [date],
+	[Quantity] [int],
+	[UnitPrice] [decimal](10, 3),
+	[TotalAmount] [decimal](10, 2) ,
+	[CustomerID] [int] ,
+	[Region] [varchar](50))
+
+insert into product ( saleid,productid ) values (1,1) ----- (1,1,,null,null,null,null)
+insert into product values(1,1,'abc','2025-02-05',1,1,1,1,'north'),
+(1,1,'abc','2025-02-05',1,1,1,1,'north')
+
+insert into product select * from ProductSales;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+--update 
+update product set saleid = 2,ProductName = 'abc' 
+delete product (without where condition) === truncate
+
+select * from product
+truncate table product 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+--trnsactions 
+
+begin transaction 
+update product set saleid = 2,ProductName = 'abc' -- 1 
+save transaction s1
+delete product --0
+commit
+rollback transaction s1
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+select * from Product
+
+
+
+schema on write ---  schema creation - data insertion- analysis
+
+schema on read  -- data loading - anlysis-schema creation
+
+select * from product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
