@@ -1,0 +1,90 @@
+-- Create Restaurant table
+CREATE TABLE Restaurants (
+    RestaurantID INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(100) NOT NULL,
+    CuisineType NVARCHAR(50) NOT NULL,
+    Address NVARCHAR(200) NOT NULL,
+    City NVARCHAR(50) NOT NULL,
+    State NVARCHAR(30) NOT NULL,
+    ZipCode NVARCHAR(20) NOT NULL,
+    PhoneNumber NVARCHAR(20) NOT NULL,
+    AverageRating DECIMAL(3,2),
+    OpeningTime TIME,
+    ClosingTime TIME,
+    HasDelivery BIT DEFAULT 0,
+    HasOutdoorSeating BIT DEFAULT 0,
+    IsActive BIT DEFAULT 1
+);
+GO
+
+-- Insert sample data
+INSERT INTO Restaurants (Name, CuisineType, Address, City, State, ZipCode, PhoneNumber, AverageRating, OpeningTime, ClosingTime, HasDelivery, HasOutdoorSeating)
+VALUES 
+('The Italian Bistro', 'Italian', '123 Main St', 'New York', 'NY', '10001', '212-555-1234', 4.5, '11:00', '22:00', 1, 1),
+('Spice Garden', 'Indian', '456 Oak Ave', 'Chicago', 'IL', '60601', '312-555-5678', 4.2, '10:30', '21:30', 1, 0),
+('Tokyo Sushi', 'Japanese', '789 Pine Rd', 'Los Angeles', 'CA', '90001', '213-555-9012', 4.7, '11:30', '23:00', 1, 1),
+('Burger Haven', 'American', '321 Elm St', 'Houston', 'TX', '77001', '713-555-3456', 3.9, '09:00', '21:00', 1, 1),
+('La Petite France', 'French', '654 Maple Dr', 'Miami', 'FL', '33101', '305-555-7890', 4.8, '12:00', '23:00', 0, 1),
+('Taco Fiesta', 'Mexican', '987 Cedar Ln', 'Phoenix', 'AZ', '85001', '602-555-2345', 4.1, '10:00', '22:00', 1, 0),
+('The Steak House', 'American', '135 Walnut Blvd', 'Dallas', 'TX', '75201', '214-555-6789', 4.3, '16:00', '23:00', 0, 1),
+('Golden Dragon', 'Chinese', '246 Birch St', 'San Francisco', 'CA', '94101', '415-555-0123', 3.8, '10:00', '21:30', 1, 0);
+GO
+
+-- Practice WHERE clause queries (without answers)
+-- 1. Find all restaurants with an average rating above 4.5
+
+-- 2. Retrieve restaurants that offer delivery service
+
+-- 3. List all Italian restaurants in the database
+
+-- 4. Find restaurants that close after 10 PM (22:00)
+
+-- 5. Get restaurants located in California (CA)
+
+-- 6. Find restaurants that have outdoor seating and are currently active
+
+-- 7. Retrieve restaurants with phone numbers starting with area code '212'
+
+-- 8. Find restaurants with average ratings between 4.0 and 4.5 (inclusive)
+
+-- 9. List restaurants that don't offer delivery service
+
+-- 10. Find restaurants with names containing the word "House"
+
+-- 11. Retrieve restaurants that open before 11 AM (11:00)
+
+-- 12. Find restaurants in Texas (TX) or California (CA)
+
+-- 13. List restaurants with zip codes starting with '90'
+
+-- 14. Find restaurants with exactly 4.2 average rating
+
+-- 15. Retrieve restaurants that are either Italian or French cuisine
+
+-- 16. Find restaurants with NULL values in any column (though our sample data has none)
+
+-- 17. List restaurants that don't have outdoor seating
+
+-- 18. Find restaurants with names that start with 'The'
+
+-- 19. Retrieve restaurants that are not active (IsActive = 0)
+
+-- 20. Find restaurants that serve American cuisine and have ratings above 4.0
+
+
+
+This provides a good variety of WHERE clause practice including:
+
+Comparison operators (>, <, =, >=, <=)
+
+Logical operators (AND, OR, NOT)
+
+****************Pattern matching (LIKE with wildcards) (PENDING)
+
+NULL checks
+
+BETWEEN for ranges
+
+IN for multiple possible values
+
+Combining multiple conditions
