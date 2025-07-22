@@ -118,6 +118,7 @@ schema on write ---  schema creation - data insertion- analysis
 schema on read  -- data loading - anlysis-schema creation
 
 select * from product
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
