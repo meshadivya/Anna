@@ -27,9 +27,87 @@ VALUES
 ('La Petite France', 'French', '654 Maple Dr', 'Miami', 'FL', '33101', '305-555-7890', 4.8, '12:00', '23:00', 0, 1),
 ('Taco Fiesta', 'Mexican', '987 Cedar Ln', 'Phoenix', 'AZ', '85001', '602-555-2345', 4.1, '10:00', '22:00', 1, 0),
 ('The Steak House', 'American', '135 Walnut Blvd', 'Dallas', 'TX', '75201', '214-555-6789', 4.3, '16:00', '23:00', 0, 1),
-('Golden Dragon', 'Chinese', '246 Birch St', 'San Francisco', 'CA', '94101', '415-555-0123', 3.8, '10:00', '21:30', 1, 0);
+
+
+
+
+
+
+
+
+INSERT INTO [dbo].[ProductSales] (
+    [ProductID],
+    [ProductName],
+    [SaleDate],
+    [Quantity],
+    [UnitPrice],
+    [TotalAmount],
+    [CustomerID],
+    [Region]
+)
+VALUES
+-- Unique entries
+(201, 'Wireless Mouse', '2025-07-23', 2, 25.50, 51.00, 2001, 'North'),
+(202, 'Gaming Keyboard', '2025-07-23', 1, 85.00, 85.00, 2002, 'East'),
+(203, 'Laptop Stand', '2025-07-24', 1, 30.00, 30.00, 2003, 'South'),
+(204, 'USB Hub', '2025-07-24', 3, 15.00, 45.00, NULL, 'West'),
+(205, 'Monitor Arm', '2025-07-24', 2, 65.00, 130.00, 2004, 'East'),
+
+-- Duplicates of the above (exact copies)
+(201, 'Wireless Mouse', '2025-07-23', 2, 25.50, 51.00, 2001, 'North'),
+(202, 'Gaming Keyboard', '2025-07-23', 1, 85.00, 85.00, 2002, 'East'),
+(203, 'Laptop Stand', '2025-07-24', 1, 30.00, 30.00, 2003, 'South'),
+(204, 'USB Hub', '2025-07-24', 3, 15.00, 45.00, NULL, 'West'),
+(205, 'Monitor Arm', '2025-07-24', 2, 65.00, 130.00, 2004, 'East'),
+
+-- More unique entries
+(206, 'Ergonomic Chair', '2025-07-25', 1, 300.00, 300.00, 2005, 'North'),
+(207, 'Desk Organizer', '2025-07-25', 4, 12.00, 48.00, NULL, 'South'),
+(208, 'Wireless Charger', '2025-07-25', 2, 20.00, 40.00, 2006, 'West'),
+(209, 'Laptop Cooling Pad', '2025-07-26', 1, 25.00, 25.00, 2007, 'East'),
+(210, 'LED Monitor', '2025-07-26', 1, 200.00, 200.00, 2008, 'South');
+
+INSERT INTO [dbo].[ProductSales] (
+    [ProductID],
+    [ProductName],
+    [SaleDate],
+    [Quantity],
+    [UnitPrice],
+    [TotalAmount],
+    [CustomerID],
+    [Region]
+)
+VALUES
+(111, 'Mechanical Keyboard', '2025-07-12', 2, 85.00, 170.00, 1007, 'West'),
+(112, 'Gaming Mouse', '2025-07-12', 1, 45.00, 45.00, 1008, 'North'),
+(113, 'Monitor Stand', '2025-07-13', 1, 35.00, 35.00, NULL, 'South'),
+(114, 'Smartphone Dock', '2025-07-13', 3, 22.00, 66.00, 1009, 'East'),
+(115, 'Portable Speaker', '2025-07-14', 2, 95.00, 190.00, 1010, 'North'),
+(116, 'Graphics Tablet', '2025-07-14', 1, 140.00, 140.00, 1011, 'West'),
+(117, 'HDMI Cable', '2025-07-14', 5, 12.00, 60.00, NULL, 'East'),
+(118, 'Wireless Router', '2025-07-15', 1, 85.00, 85.00, 1012, 'South'),
+(119, 'Surge Protector', '2025-07-15', 4, 18.00, 72.00, 1001, 'North'),
+(120, 'LED Strip Light', '2025-07-15', 6, 10.00, 60.00, 1002, 'West'),
+(121, 'Laptop Backpack', '2025-07-16', 2, 60.00, 120.00, 1003, 'East'),
+(122, 'Wi-Fi Range Extender', '2025-07-16', 1, 50.00, 50.00, 1004, 'South'),
+(123, 'SSD 1TB', '2025-07-16', 1, 120.00, 120.00, 1005, 'North'),
+(124, 'Bluetooth Speaker', '2025-07-17', 2, 55.00, 110.00, NULL, 'West'),
+(125, 'Wireless Charger', '2025-07-17', 3, 30.00, 90.00, 1006, 'South'),
+(126, 'Drawing Pad', '2025-07-17', 1, 75.00, 75.00, 1007, 'East'),
+(127, 'Laptop Cooling Pad', '2025-07-18', 2, 25.00, 50.00, NULL, 'North'),
+(128, 'Dual Monitor Arm', '2025-07-18', 1, 130.00, 130.00, 1008, 'West'),
+(129, 'Printer', '2025-07-19', 1, 160.00, 160.00, 1009, 'South'),
+(130, 'Smartwatch', '2025-07-19', 2, 150.00, 300.00, 1010, 'East'),
+(131, 'Tablet Stand', '2025-07-19', 1, 40.00, 40.00, NULL, 'North'),
+(132, 'Ergonomic Mouse Pad', '2025-07-20', 4, 12.00, 48.00, 1011, 'West'),
+(133, 'USB Flash Drive 64GB', '2025-07-20', 5, 15.00, 75.00, 1012, 'South'),
+(134, 'Mini Projector', '2025-07-20', 1, 250.00, 250.00, NULL, 'East'),
+(135, 'Laptop Skin', '2025-07-21', 3, 18.00, 54.00, 1001, 'North'),
+(136, 'Cable Organizer', '2025-07-21', 6, 8.00, 48.00, 1002, 'West'),
+(137, 'Standing Desk Converter', '2025-07-21', 1, 280.00, 280.00, 1003, 'South'),
+(138, 'Bluetooth Earbuds', '2025-07-22', 2, 65.00, 130.00, 1004, 'East'),
+(139, 'Wireless Presenter', '2025-07-22', 1, 40.00, 40.00, 1005, 'North'),
+(140, 'Adjustable Desk Lamp', '2025-07-22', 2, 35.00, 70.00, NULL, 'West');
 GO
 
---find average rating for each cuisine type
---find totalrows for each city
---find total average rating for each city and state
+
