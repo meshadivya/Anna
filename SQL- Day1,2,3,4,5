@@ -120,6 +120,10 @@ schema on read  -- data loading - anlysis-schema creation
 select * from product
 -----------------------------------------------------------------------------------------------------------------------------------------
 
+aggregations - count, sum, max, min, avg
+
+group by - if we want to apply aggregations on grouped data we need to use group by
+
 
 
 
